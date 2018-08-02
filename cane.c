@@ -46,7 +46,7 @@ void loop()
   // If touch sensor receives input send SMS messages
   if (digitalRead(SW) == 1){
     Message = "I need your Help! I'm at latitude: " + Message1 + " and longitude: " + Message2;
-    SMS.send("9736705208", Message);
+    SMS.send("enter phone number here", Message);
     Message = "Google Maps - https://www.google.com/maps/place/" + Message1 + "," + Message2;
     SMS.send(PhoneNumber,Message);
     delay(2000);
