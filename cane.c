@@ -20,16 +20,15 @@ String PhoneNumber = "9736705208";
 String Message;
 String Message1;
 String Message2;
-char latitude[10];
-char longitude[10];
 
-void setup() 
+void setup()
 {
   // Assign pins roles
   pinMode(trigPinL, OUTPUT);
   pinMode(echoPinL, INPUT);
   pinMode(trigPinH, OUTPUT);
   pinMode(echoPinH, INPUT);
+  pinMode(buzzer, OUTPUT);
   pinMode(SW, INPUT);
   // Start communication
   OneSheeld.begin();
@@ -46,7 +45,7 @@ void loop()
   // If touch sensor receives input send SMS messages
   if (digitalRead(SW) == 1){
     Message = "I need your Help! I'm at latitude: " + Message1 + " and longitude: " + Message2;
-    SMS.send("enter phone number here", Message);
+    SMS.send(PhoneNumber, Message);
     Message = "Google Maps - https://www.google.com/maps/place/" + Message1 + "," + Message2;
     SMS.send(PhoneNumber,Message);
     delay(2000);
